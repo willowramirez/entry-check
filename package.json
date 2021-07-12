@@ -1,0 +1,27 @@
+{
+  "name": "entry-check",
+  "version": "0.0.1",
+  "description": "小程序页面入参检查",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willowramirez/entry-check.git"
+  },
+  "keywords": [
+    "wechat",
+    "tool",
+    "check",
+    "miniapp",
+    "wepp",
+    "小程序"
+  ],
+  "author": "Willow Ramirez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/willowramirez/entry-check/issues"
+  },
+  "homepage": "https://github.com/willowramirez/entry-check#readme"
+}
