@@ -1,7 +1,9 @@
-#!/usr/bin/env node
 
-const entryCheck = require('../src/index.js');
+// const entryCheck = require('../src/index.js');
+// const entryCheck = require('../dist/main.bundle.js');
+import entryCheck from '../dist/main.bundle.js';
 
+console.log('entryCheck', entryCheck);
 (async function() {
   const entryData = {
     id: 12,

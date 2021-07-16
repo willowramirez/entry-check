@@ -25,7 +25,7 @@ function createError(type, options) {
   return new Error(err.getErrMessage(type));
 }
 
-module.exports = function entryCheck(
+export default function entryCheck(
   config,
   option,
 ) {
