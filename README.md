@@ -10,6 +10,17 @@
 
 [TOC]
 
+<!-- toc -->
+
+- [Install](#install)
+- [Usage](#usage)
+  - [ES6](#es6)
+- [Extra Sections](#extra-sections)
+- [API](#api)
+- [License](#license)
+
+<!-- tocstop -->
+
 ## Install
 
 ```javascript
