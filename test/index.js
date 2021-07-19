@@ -1,7 +1,7 @@
 
 // const entryCheck = require('../src/index.js');
-// const entryCheck = require('../dist/main.bundle.js');
-import entryCheck from '../dist/main.bundle.js';
+const entryCheck = require('../dist/main.bundle.js').default;
+// import entryCheck from '../dist/main.bundle.js';
 
 console.log('entryCheck', entryCheck);
 (async function() {
