@@ -8,14 +8,14 @@
 
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
-[TOC]
-
 <!-- toc -->
 
 - [Install](#install)
 - [Usage](#usage)
   - [ES6](#es6)
 - [Extra Sections](#extra-sections)
+  - [支持检查的数据类型](#)
+  - [小程序使用场景](#)
 - [API](#api)
 - [License](#license)
 
@@ -40,7 +40,19 @@ if (err) {
 ```
 
 ## Extra Sections
-+ 小程序使用场景
+### 支持检查的数据类型
+  ```javascript
+  [
+    "null",
+    "undefined",
+    "string",
+    "number",
+    "boolean",
+    "array",
+    "object",
+  ]
+  ```
+### 小程序使用场景
   - 页面入参 onLoad
   - 页面间通信接口 wx.navigateTo({ events });
   - 小程序入参 onLaunch / onShow
