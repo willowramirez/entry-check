@@ -7,7 +7,9 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: '[name].bundle.js',
-    libraryTarget: 'this',
+    library: {
+      type: 'commonjs2',
+    }
   },
   devtool: 'source-map',
   plugins: [
