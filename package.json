@@ -1,6 +1,6 @@
 {
   "name": "entry-check",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "小程序页面入参检查",
   "main": "dist/main.bundle.js",
   "scripts": {
