@@ -1,4 +1,4 @@
-const TYPE_MAPPING = [
+export const TYPE_MAPPING = [
   "null",
   "undefined",
   "string",
@@ -7,7 +7,3 @@ const TYPE_MAPPING = [
   "array",
   "object",
 ];
-
-module.exports = {
-  TYPE_MAPPING,
-};

@@ -1,8 +1,7 @@
-const { TYPE_MAPPING } = require('../config/content.js');
+import { TYPE_MAPPING } from '../config/content.js';
 
 class Err_Type {
   key = '${key}';
-  optionKeyType = '${optionKeyType}';
 
   constructor(options = {}) {
     const { key = this.key, type = this.type } = options;
@@ -25,18 +24,46 @@ function createError(type, options) {
   return new Error(err.getErrMessage(type));
 }
 
+function logResult(
+  config = [],
+  option,
+) {
+  const len = config.length;
+  const result = {};
+  for (let i = 0; i < len; i += 1) {
+    const [
+      key,
+      type,
+      required = true,
+    ] = config[i];
+    // 可选入参
+    if (required === false) continue;
+    if (!Reflect.has(option, key)) result[key] = [false, null, new Err_Type({ key }).getErrMessage('MISSING')];
+
+    const optionKeyType = Object
+      .prototype.toString.call(option[key])
+      .match(/[a-zA-Z]+/g)[1]
+      .toLocaleLowerCase();
+
+    if (!TYPE_MAPPING.includes(type)) result[key] = [false, option[key], new Err_Type({ key, type }).getErrMessage('ILLEGAL')];
+    if (type !== optionKeyType) result[key] = [false, option[key], new Err_Type({ key }).getErrMessage('MISMATCH')];
+  }
+  return result;
+}
+
 export default function entryCheck(
-  config,
+  config = [],
   option,
 ) {
   return new Promise((resolve) => {
     try {
       const len = config.length;
+      const result = {};
       for (let i = 0; i < len; i += 1) {
         const [
           key,
           type,
-          required,
+          required = true,
         ] = config[i];
         // 可选入参
         if (required === false) continue;
@@ -48,9 +75,9 @@ export default function entryCheck(
         if (!TYPE_MAPPING.includes(type)) throw createError('ILLEGAL', { key, type });
         if (type !== optionKeyType) throw createError('MISMATCH', { key });
       }
-      resolve([null, true]);
+      resolve([null, null]);
     } catch (error) {
-      resolve([error, false]);
+      resolve([error, logResult(config, option)]);
     }
   });
 };
